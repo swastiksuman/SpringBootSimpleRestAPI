@@ -1,23 +1,24 @@
 package com.springframework.pandacourse.controllers;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springframework.pandacourse.services.CourseService;
-import com.springframework.pandacourse.services.TopicService;
 
+@Api(description="This provides Course Controls to get, add and delete courses.")
 @RestController
 public class CourseController {
 	
 	@Autowired
 	private CourseService courseService;
 	
+	@ApiOperation(value="This lists all Courses", notes="It will provide with all the current courses.")
 	@RequestMapping("/courses")
 	public List<Course> getAllTopics() {
 		return courseService.getAllCourse();

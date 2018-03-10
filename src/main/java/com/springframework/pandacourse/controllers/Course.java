@@ -1,5 +1,7 @@
 package com.springframework.pandacourse.controllers;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -10,6 +12,7 @@ public class Course {
 	@Id
 	private String id;
 	private String name;
+	@ApiModelProperty(value="This is the description of the course", required=true)
 	private String description;
 	
 	@ManyToOne

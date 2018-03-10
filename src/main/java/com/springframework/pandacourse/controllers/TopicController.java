@@ -1,5 +1,8 @@
 package com.springframework.pandacourse.controllers;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springframework.pandacourse.services.TopicService;
 
+@Api(description="This provides Topics Controls to get, add and delete topics.")
 @RestController
 public class TopicController {
 	
 	@Autowired
 	private TopicService topicService;
 	
+	@ApiOperation(value="This lists all Courses", notes="It will provide with all the current courses.")
 	@RequestMapping("/topics")
 	public List<Topic> getAllTopics() {
 		return topicService.getAllTopic();
